@@ -74,6 +74,17 @@ Pasos:
 	2.- head -5 Finn.txt | wc -w 
 	3.- cat -n Text_example.txt | head -3
 
+Utilizamos find para buscar:
+	find . -maxdepth 5 -type f -name "text_file*"
+	find -type f -perm 777
+	sudo find -type f -iname "text_file*" -exec echo "FOUND IT" \;  para ejecutar en cada linea
+	sudo find -type f -iname "text_file*" -exec ls -l {} \; -exec head -2 {} \;
+	sudo find -type f -iname "text_file*" -ok ls -l {} \; --ideal para controlar borrados
+	sudo find -type f -iname "text_file*" -exec bash -c "head -2 {} | wc" \; --para poder hacer pipe con el exec 
 
-
-
+EJERCICIO FIND:
+Pasos:
+	1.- sudo find -type f -mmin -60
+	2.- sudo find -type f -empty ! -perm 777 
+	3.- sudo find -type f -empty ! -perm 777 -ok chmod 777 {} \;
+	4.- find -type d -exec bash -c "echo directrio {}; ls -l -S {}| head -4" \;
