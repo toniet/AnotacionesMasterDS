@@ -1,0 +1,43 @@
+virgulilla (flipa)
+abrir terminal: ctrl + alt + t
+ls -a muestra ocultos y empiezan con un punto (directorios tb)
+tema permisos (por ejemplo en ls -la):
+el primero es fichero o directorio, se organizan en 3 niveles usuario-grupo-mundo
+rwx (leer-escribir-ejecutar) note directorio ejecutar mundo pq es hacer un cd
+mkdir -p --para crear cadena de directorios
+touch --crear ficheros vacios y actualizar metadatos
+rm -rf ----- ojo, primero con ls y luego cambiamos
+
+ejercicio de shell:
+mkdir first_dir
+touch ./first_dir/text_file.txt
+cd first_dir
+ls
+ls -l
+chmod 676 text_file.txt
+ls -l
+mkdir sub1; mkdir sub2;mkdir txt_file
+ls
+cp text_file.txt ./sub1
+ls ./sub1
+mv ./sub1/text_file.txt ./sub2/text_file.txt.2
+ls ./sub1
+ls ./sub2
+cp -r ./sub1 sub3
+ls
+mv ./sub2/text_file.txt.2 ./sub2/text_file.txt.backup
+ls ./sub2
+mv ./sub2/text_file.txt.backup .text_file.txt.backup
+ls
+ls -la
+rm sub2
+ls sub2
+rm -f sub2
+rm -f ./sub2
+rm -r sub2
+ls
+
+GIT:
+
+
+

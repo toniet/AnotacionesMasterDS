@@ -1,0 +1,28 @@
+Para crear repo en git:
+en github creamos, de donde sacamos url
+desde consola: git clone URLGithub (esto te clona tu repo en local)
+
+desde consola gedit + fichero y abre editor
+cuando haces cambios en el repo, en la linea del shell te indica cambios, con git status te dice el estado.
+
+Una vez se han realizado cambios en el repo, tenemos que hacer commit para decir que esta listo para subir 
+al repo remoto, o algo asi
+
+Para hacer el paso en local a Staging se tiene que hacer git add + NombreFichero (o git add -u --que es updated ficheros)
+
+Para hacer commit en local git commit -m "Message"
+
+Y para sync Repo local y remoto git push
+
+Para resumir WorkFlow:
+
+git clone URLGithub	# Importa "clona" Repo desde Github
+git add Fichero		# Añade Fichero a fase Staging	
+git commit -m		# Commit local
+git push		# Commit Remoto
+
+Las fases son:
+	Directorio trabajo ---------> Staging ---------> RepoLocal ---------> RepoRemoto
+
+
+Podemos crear un git desde local con git init NombreDirectorio
