@@ -65,3 +65,15 @@ con estas dos cosas trabajaremos con pipelines de shell:
 	head -3 Text_example.txt | wc
 con > volcamos pantalla en un fichero
 con >> añadimos pantalla en un fichero que ya existe
+con < lee de un fichero  
+	wc < Text_example.txt
+
+EJERCICIO con PIPES:
+Pasos:
+	1.- ls -l -S | head -2 | tail -1 > largest_file.txt
+	2.- head -5 Finn.txt | wc -w 
+	3.- cat -n Text_example.txt | head -3
+
+
+
+
