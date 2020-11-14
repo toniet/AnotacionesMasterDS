@@ -34,3 +34,34 @@ git remote add origin https://github.com/toniet/MisIdeas.git
 git branch -M main
 git push -u origin main
 '''
+
+con less podemos ver fichero texto en modo solo lectura con busquedas, tipo man de linux, de hecho utiliza lo mismo
+pero las búsquedas son desde la posicion desde donde estas, no desde el principio. Con g vamos al principio de fichero y con G 
+vamos al final, podemos utilizar el -N como en cat para mostrar los numeros de lineas.
+Con -S podemos ver todo en la misma linea. Nos quedamos con: less -N -S
+
+Comandos interesantes de shell
+ctrl + u --borrar todo
+ctrl + k --borrar a partir
+ctrl + l --clear
+ctrl + d --cierra terminal
+ctrl + shift t --nueva pestaña terminal
+ctrl + shift n --nueva terminal
+alias (printenv) -- type "alias" para saber que estamos ejecutando, podemos crear alias nuevos al igual que se crean las variables
+	Se eliminan en cada sesion de terminal
+Ejemplos: 
+	type python --que estas diciendo realmente
+	which python --que se ejecuta
+	whereis python --donde lo encontramos
+	(es por el tema de pip install..... donde se instala)
+	--> sudo which python --que se ejecuta
+
+con head vemos "n" primeras lineas y con tail vemos las "n" ultimas lineas
+con wc Fichero, numero de lineas palabras y bytes de un fichero
+con estas dos cosas trabajaremos con pipelines de shell:
+	echo "HELP meeeee" | wc
+	cat Text_example.txt | wc
+	cat Text_example.txt | head -3 | wc
+	head -3 Text_example.txt | wc
+con > volcamos pantalla en un fichero
+con >> añadimos pantalla en un fichero que ya existe
