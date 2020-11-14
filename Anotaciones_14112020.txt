@@ -26,3 +26,11 @@ Las fases son:
 
 
 Podemos crear un git desde local con git init NombreDirectorio
+Despues todo igual salvo subir el repo a GitHub, para ello, debemos crear Repo vacio en GitHub y luego:
+'''
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/toniet/MisIdeas.git
+git branch -M main
+git push -u origin main
+'''
