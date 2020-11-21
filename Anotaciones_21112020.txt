@@ -34,8 +34,58 @@ Ahora vemos csv un paquete que no esta en la base standard 'csv kit', se instala
 			aircraft_type VARCHAR
 		);
 	csvsql -d "^" -i mysql optd_aircraft.csv
-	csvsql -d "^" -i oracle optd_aircraft.csv 
-	
+	csvsql -d "^" -i oracle optd_aircraft.csv
+
+Subimos nuestras cosas a github:
+	git mv Shell/column_name_number.sh Shell_scripts	--no es lo mismo que el mv a secas, si hacemos mv para git es borrar un fichero
+								-- y crear otro con git mv es cambiarlo de ubicacion pq esta trackeado
+	git rm Shell_clase2020-11-14.txt Shell_clase2020-11-20.txt 	--elimino ficheros con git rm, no es rm normal
+	gl --oneline --name-only	--vamos a recuperarlos
+	git checkout b16c75f		--vamos a una version anterior a la elegida b16c75f, simplemente mirar
+	git checkout main		--hemos mirado otra version y hemos vuelto a main
+
+Empezamos con PYTHON:
+	jupyter-notebook	--abrimos notebook... nunca lo habia visto, se levanta un servidor (http://localhost:8888/tree)
+
+En Jupyter, cuando estamos en una celula:
+	ctrl + Enter	-- ejecutamos y nos quedamos
+	Shift + Enter	-- ejecutamos y vamos a la siguiente
+La diferencia entre lista y tupla, la tupla es inmutable, pero ojo una tupla ppuede tener una lista como elemente y esta si que se puede modificar
+dejo todas la notaciones del dia en el notebook de python
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 
