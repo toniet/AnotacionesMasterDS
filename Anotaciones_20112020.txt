@@ -1,0 +1,87 @@
+Vamos a seguir con mas comandos de Linux:
+
+seq 1 10 | seq 1 2 10 --para secuencias
+uniq 	--vamos a ver duplicados en las lineas de un fichero
+	--pero hay que ordenarlo que lo haremos con sort
+sort NomnbreFichero
+	sort -n uniq_example.txt | uniq
+	sort -n uniq_example.txt | uniq -d 	--los duplicados
+	sort -n uniq_example.txt | uniq -c 	--cuenta los duplicados 
+	sort -u uniq_example.txt
+sort funciona con CSV
+	sort -t "^" -k 6,6  optd_aircraft.csv | head
+	sort -t "^" -k 6r,6  optd_aircraft.csv | head
+	sort -t "^" -k 6r,6 -k 4r,4 optd_aircraft.csv | head
+	sort -t "^" -k 6r,6 -k 4rn,4 optd_aircraft.csv | head 	--numericamente
+	sort -t "^" -k 2,2 -u optd_aircraft.csv | wc -l
+cut sacar columnas de un fichero en este caso un CSV
+	cut -d "^" -f 1,3-5 optd_aircraft.csv | head	--ojo no hay order en las filas, el pone el orden
+	cut -d "^" -f 2,7 --output-delimiter=","  optd_aircraft.csv | head 	--cambiamos el delimitador
+paste como el cat pero mola mas
+	paste numbers numbers	--concatena horizontalmente
+	paste -s -d "^" numbers	--elegimos el separador que queremos y solo en una linea
+trabjamos con <()
+	paste <(seq 5 10) <(seq 10)	--donde vemos que <() se devuelve como parametro
+tr para hacer un reemplazar, ojo simbolo a simbolo no cadenas de caracteres, es uno a uno
+	head -1 optd_aircraft.csv | tr "^" "\n"
+	paste <(seq 10) <(head -1 optd_aircraft.csv|tr "^" "\n")	--podemos identificar el numero de la columna
+	echo "       master         data science" | tr -s " " "^"	--quitamos los espacios en blanco por separador
+	echo "master data science" | tr -d s	--borramos las s
+de los ejercicios te copio esto:
+	cat optd_airlines.csv | cut -d "^" -f 8,14 | sort -t "^" -k 2nr,2 | head -1
+	cut -d "^" -f 10 optd_airlines.csv | sort -r | uniq -c | tail 1
+grep	--buscar patrones en el fichero
+	grep this Text_example.txt
+	grep -v -n this Text_example.txt
+	grep -i this Text_example.txt
+	grep -n -B 1 this Text_example.txt
+	grep -n -A 1 this Text_example.txt
+	grep -n -C 1 this Text_example.txt
+	grep -n -w line Text_example.txt	-- palabra exacta
+	grep -E "^T" Finn.txt	--Empieza por T
+sed,comando muy complejo, tiene muchas opciones. Sirve para hacer cosas con stream de texto
+	echo Sunday | sed 's/day/night/' --Cambiar day por night, la s es en modo sustutite
+	echo Sunday | sed 's^day^night^'	--es lo mismo, ojo solo cambia la primera vez
+	echo Sunday | sed 's^day^night^g'	--la g es para que siga cambando en las lineas
+	sed 's/this/RONALDO/gI' Text_example.txt	--Mirar donde van los parametros, gI, la I es para no sensitivo
+	sed -i 's/this/RONALDO/gI' Text_example_copy.txt	--edita el fichero que le dices, realiza los cambios
+	seq 5 | sed -n '2p', seq 5 | sed '2p', seq 5 | sed -n '2p;4p'; seq 5 | sed -n '2,4p'
+	seq 5 | sed '3d'	-- borramos la 3
+	sed -i '/lines/d' Text_example_copy.txt	--borramos todas las lineas que contengan 'lines'
+	sed -i '/lines/!d' Text_example_copy.txt	--borra todas las que no tengan line
+	sed -n '/line/!p' Text_example_copy.txt
+Ahora vamos con GIT:
+	Siempre empezamos con git pull, para ver que tenemos la utima version de nuestro codigo
+	-- para buscar en el terminal ctrl + r
+	 git ls-files ver los ficheros que se estan trackeando
+	touch .gitignore		-- creamos el fichero gitignore para capar segun que ficheros
+	echo '*backup'>>.gitignore	-- metemos los ficheros *backup para que git no los contemple
+Estamos haciendo copias del Repo de ClasesMaster para ver casuisticas, luego subo un fichero con esto, o no. (ya veremos)
+	git checkout -- Shell/Shell_clase2020-11-20.txt	--volver a lo que tienes en commit, descarto lo ultimo que he modificado sin hacer add
+	git reset --hard HEAD	--me he quedado con el ultimo commit que se ha realizado, se machaca, lo added y lo modificado	
+	git reset --hard origin/main	--vuelve a los cambios que tenias en la ultima vez que se hizo pull
+	git checkout 7a92d7adbdb51963a4378161bb446edf6f4c70ad Shell/Shell_clase2020-11-20.txt	--volvemos al fichero de ese commit
+	git checkout main	--si tienes problemas con las ramas
+Volvemos a comandos de consola:
+zip, para comprimir y descomprimir ficheros
+	zip text_files.zip Finn.txt Text_example_copy.txt Text_example.txt
+	zipinfo text_files.zip	--para ver que hay dentro
+	zcat text_files.zip | less
+	zless text_files.zip			-- ojo estos dos solo van al primero sino se especifica
+	zgrep text_files.zip
+	unzip text_files.zip	--descomprimir
+	gzip Finn.txt Text_example.txt	--comprime ambos por separado y borra el original
+	gunzip Finn.txt Text_example.txt	--funciona igual que el anterior; sirve, por ejemplo, para ahorrar espacio en disco
+	bzip2 Finn.txt Text_example_copy.txt Text_example.txt	--(solo un fichero por compresion)este mola pq se puede partir el fichero donde se quiera
+	bunzip2 Finn.txt.bz2 Text_example_copy.txt.bz2 Text_example.txt.bz2
+	tar -czvf textfiles.tar Finn.txt Text_example_copy.txt Text_example.txt	--Sirve para agrupar, puede o no comprimir
+	tar -xvf textfiles.tar	-- descomprimir, no hace falta decir el tipo de compresion
+Ahora vamos a hacer un Script, es colum_name_number.sh
+
+
+
+
+
+
+
+
