@@ -47,6 +47,7 @@ ctrl + l --clear
 ctrl + d --cierra terminal
 ctrl + shift t --nueva pestaña terminal
 ctrl + shift n --nueva terminal
+ctrl + r buscar en terminal
 alias (printenv) -- type "alias" para saber que estamos ejecutando, podemos crear alias nuevos al igual que se crean las variables
 	Se eliminan en cada sesion de terminal
 Ejemplos: 
