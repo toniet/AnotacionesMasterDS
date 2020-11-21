@@ -1,0 +1,43 @@
+Ahora vamos a hacer un Script, es column_name_number.sh
+'''
+#!/bin/bash
+FILE_NAME=$1
+DELIMITER=$2
+NUM_OF_COLUMNS=$(head -1 $FILE_NAME | tr $DELIMITER "\n" | wc -l)
+#echo "File name: $FILE_NAME with delimiter=$DELIMITER"
+echo num of columns = $NUM_OF_COLUMNS
+paste <(seq $NUM_OF_COLUMNS) <(head -1 $FILE_NAME | tr $DELIMITER "\n")
+
+'''
+Ahora vamos a añadir un directorio a PATH, en este casi my_scripts
+	echo $PATH | tr : "\n"	--lista directorios de PATHs
+hacemos una copia de .zshrc y
+	gedit .zshrc	--hemos añadido un par de alias de git y añadido nuestro directorio en la variable $PATH
+			--es necesario reiniciar terminal
+
+
+
+Ahora vemos csv un paquete que no esta en la base standard 'csv kit', se instala con pip install, vemos un ejemplo:
+	csvlook -d "^" optd_por_public.csv | less -S
+	head optd_por_public.csv | csvlook -l -d "^" | less -S
+	csvstat -d "^" optd_por_public.csv | less -S
+	csvcut -d "^" -c manufacturer,aircraft_type optd_aircraft.csv| less -S	--elegimos columnas
+	csvsql -d "^" optd_aircraft.csv -- que nos da:
+		CREATE TABLE optd_aircraft (
+			iata_code VARCHAR NOT NULL, 
+			manufacturer VARCHAR, 
+			model VARCHAR NOT NULL, 
+			iata_group VARCHAR, 
+			iata_category VARCHAR, 
+			icao_code VARCHAR, 
+			nb_engines DECIMAL, 
+			aircraft_type VARCHAR
+		);
+	csvsql -d "^" -i mysql optd_aircraft.csv
+	csvsql -d "^" -i oracle optd_aircraft.csv 
+	
+	
+
+
+
+
